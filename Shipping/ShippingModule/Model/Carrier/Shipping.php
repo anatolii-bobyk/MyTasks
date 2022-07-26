@@ -89,11 +89,20 @@ class Shipping extends AbstractCarrier implements CarrierInterface
 
         $shippingCost = (float)$this->getConfigData('shipping_cost');
 
+        $discountStarts = (float)$this->getConfigData('discount_starts');
+
+        $discountEnds = (float)$this->getConfigData('discount_ends');
+
         $discount = (float)$this->getConfigData('discount');
+
+        $freeShipping = (float)$this->getConfigData('free_shipping');
 
         $finalTotal = $this->cart->getQuote()->getGrandTotal();
 
-        if ($finalTotal >= $discount) {
+        if ($finalTotal >= $discountStarts && $finalTotal <= $discountEnds) {
+            $method->setPrice($shippingCost * $discount / 100);
+            $method->setCost($shippingCost * $discount / 100);
+        } else if ($finalTotal >= $freeShipping) {
             $method->setPrice(0);
             $method->setCost(0);
         } else {

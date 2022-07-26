@@ -7,10 +7,13 @@
                 <model>Shipping\ShippingModule\Model\Carrier\Shipping</model>
                 <title>My Shipping Module</title>
                 <name>My shipping method</name>
-                <shipping_cost>3</shipping_cost>
+                <discount_starts>200</discount_starts>
+                <discount_ends>999</discount_ends>
+                <shipping_cost>20</shipping_cost>
                 <sallowspecific>0</sallowspecific>
                 <sort_order>10</sort_order>
-                <discount>100</discount>
+                <discount>50</discount>
+                <free_shipping>1000</free_shipping>
             </customshipping>
         </carriers>
     </default>
