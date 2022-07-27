@@ -99,7 +99,7 @@ class Shipping extends AbstractCarrier implements CarrierInterface
 
         $finalTotal = $this->cart->getQuote()->getGrandTotal();
 
-        $dynamicRows = (float)$this->getConfigData('dynamic_rows');
+        $dynamicRows = $this->getConfigData('dynamic_rows');
 
         $data = json_decode($dynamicRows, true);
 
