@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Shipping\ShippingModule\Block\Adminhtml\Form\Field;
 
 use Magento\Framework\View\Element\Html\Select;
 
-class DynamicColumn extends Select
+class TaxColumn extends Select
 {
     /**
-     * SetInputName function
+     * Set "name" for <select> element
      *
-     * @param [type] $value
-     * @return void
+     * @param string $value
+     * @return $this
      */
     public function setInputName($value)
     {
@@ -18,10 +20,10 @@ class DynamicColumn extends Select
     }
 
     /**
-     * SetInputId function
+     * Set "id" for <select> element
      *
-     * @param [type] $value
-     * @return void
+     * @param $value
+     * @return $this
      */
     public function setInputId($value)
     {
@@ -33,7 +35,7 @@ class DynamicColumn extends Select
      *
      * @return string
      */
-    public function _toHtml()
+    public function _toHtml(): string
     {
         if (!$this->getOptions()) {
             $this->setOptions($this->getSourceOptions());
@@ -41,12 +43,7 @@ class DynamicColumn extends Select
         return parent::_toHtml();
     }
 
-    /**
-     * GetSourceOptions function
-     *
-     * @return array
-     */
-    private function getSourceOptions()
+    private function getSourceOptions(): array
     {
         return [
             ['label' => 'Yes', 'value' => '1'],

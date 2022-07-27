@@ -7,7 +7,6 @@ use Magento\Shipping\Model\Carrier\AbstractCarrier;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Quote\Model\Quote\Address\RateResult\ErrorFactory;
-use Magento\Tests\NamingConvention\true\float;
 use Psr\Log\LoggerInterface;
 use Magento\Shipping\Model\Rate\ResultFactory;
 use Magento\Quote\Model\Quote\Address\RateResult\MethodFactory;
@@ -100,15 +99,15 @@ class Shipping extends AbstractCarrier implements CarrierInterface
 
         $finalTotal = $this->cart->getQuote()->getGrandTotal();
 
-        $dynamicRow = (float)$this->getConfigData('dynamic_field');
+        $dynamicRows = (float)$this->getConfigData('dynamic_rows');
 
-        $data = json_decode($dynamicRow, true);
+        $data = json_decode($dynamicRows, true);
 
         foreach ($data as $datum) {
             if ($finalTotal >= $datum['starts'] && $finalTotal <= $datum['ends']) {
-                $method->setPrice($datum['cost'] * $datum['dis_value'] / 100);
-                $method->setCost($datum['cost'] * $datum['dis_value'] / 100);
-            } else if ($finalTotal >= $freeShipping) {
+                $method->setPrice($datum['cost'] * $datum['disc'] / 100);
+                $method->setCost($datum['cost'] * $datum['disc'] / 100);
+            } else if ($finalTotal >= $datum['free']) {
                 $method->setPrice(0);
                 $method->setCost(0);
             } else {
