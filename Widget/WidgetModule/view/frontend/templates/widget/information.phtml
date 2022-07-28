@@ -1,0 +1,6 @@
+<?php
+/** @var \Widget\WidgetModule\Block\Widget\Information $block */
+?>
+<p><strong><h2><?= $block->escapeHtml($block->getData('title')) ?></h2></strong></p>
+<p><h4><?= $block->escapeHtml($block->getData('description')) ?></h4></p>
+<p><img src="<?= $block->escapeHtml($block->getData('image')) ?>"/></p>
