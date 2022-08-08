@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento/etc/adminhtml/system.xsd">
+    <system>
+        <tab id="tutorial" translate="label" sortOrder="10000">
+            <label>My Label</label>
+        </tab>
+        <section id="tutorial" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>My Label</label>
+            <tab>tutorial</tab>
+            <resource>Tutorial_TutorialModule::tutorial</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>My Label</label>
+                <field id="upload_image_id" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select Image</label>
+                    <backend_model>Tutorial\TutorialModule\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">myImage</base_url>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

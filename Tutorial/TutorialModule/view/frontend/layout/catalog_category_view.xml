@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock class="Magento\Catalog\Block\Category\View" name="category.products" template="Magento_Catalog::category/products.phtml">
+                <referenceBlock class="Magento\Catalog\Block\Product\ListProduct" name="category.products.list" template="Tutorial_TutorialModule::product/showLabel.phtml">
+                    <arguments>
+                        <argument name="view_model"
+                                  xsi:type="object">Tutorial\TutorialModule\ViewModel\Image
+                        </argument>
+                    </arguments>
+                </referenceBlock>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

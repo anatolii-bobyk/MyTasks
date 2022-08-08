@@ -1,0 +1,12 @@
+<?php
+/** @var \Tutorial\TutorialModule\Block\Tutorial $block */
+
+$_product = $block->getProduct();
+$custom = $_product->getData('not_full_product');
+if ($custom) {
+    ?>
+    <h4><p style="color: red">До цього продукту потрібно додатково придбати <a
+                href="<?php $url = $_product->getData('sku_for_product2');
+                echo $block->getProductUrlBySku($url) ?>">My Study Plan</a></p></h4>
+    <!--    <p><img src="--><?php //echo $block->getLabel() ?><!--"></p>-->
+<?php } ?>
