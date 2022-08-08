@@ -36,6 +36,29 @@ class MyAtt implements DataPatchInterface
     {
         /** @var EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create(['setup' => $this->moduleDataSetup]);
+
+        $eavSetup->addAttribute('catalog_product', 'sku_for_product2', [
+            'type' => 'text',
+            'backend' => '',
+            'frontend' => '',
+            'label' => 'SKU for product 2',
+            'input' => 'text',
+            'class' => '',
+            'source' => '',
+            'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'visible' => true,
+            'required' => true,
+            'user_defined' => false,
+            'default' => '',
+            'searchable' => false,
+            'filterable' => false,
+            'comparable' => false,
+            'visible_on_front' => false,
+            'used_in_product_listing' => true,
+            'unique' => false,
+            'apply_to' => '',
+        ]);
+
         $eavSetup->addAttribute('catalog_product', 'not_full_product', [
             'type' => 'int',
             'backend' => '',
