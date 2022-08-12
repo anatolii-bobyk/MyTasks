@@ -42,7 +42,6 @@ class Index extends Action
      */
     protected $stockState;
 
-
     /** @var SessionFactory */
     protected $checkoutSession;
 
@@ -71,7 +70,6 @@ class Index extends Action
      * @var bool
      */
     protected bool $notEnoughQty = false;
-
 
     /**
      * @param Context $context
@@ -116,7 +114,6 @@ class Index extends Action
         parent::__construct($context);
     }
 
-
     /**
      * @return ResponseInterface|ResultInterface
      */
@@ -140,7 +137,6 @@ class Index extends Action
         } catch (Exception $e) {
             return $this->redirect('/');
         }
-
 
         if ($this->notEnoughQty) {
             return $this->redirect('/');
