@@ -148,6 +148,7 @@ class Index extends Action
                 return $this->redirect('/');
             }
         }
+
         $this->cartRepository->save($quote);
         $session->replaceQuote($quote)->unsLastRealOrderId();
 
