@@ -3,23 +3,18 @@
 namespace Autologin\AutologinModule\Controller\Index;
 
 use Exception;
-use Magento\Bundle\Model\ResourceModel\Option\CollectionFactory;
 use Magento\Catalog\Model\Product;
 use Magento\CatalogInventory\Api\StockStateInterface;
 use Magento\Checkout\Model\SessionFactory;
 use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 use Magento\Customer\Model\Session;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\App\ResponseInterface;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Customer\Model\CustomerFactory;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;
-use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Quote\Api\CartRepositoryInterface;
@@ -123,28 +118,36 @@ class Index extends Action
     public function execute()
     {
         $k = $this->_request->getParam('k');
-        $sku = $this->_request->getParam('sku');
-        $qty = $this->_request->getParam('qty');
+
+        $products = $this->_request->getParam('products');
 
         $customerIdByHash = $this->getCustomerIdByHash($k);
 
         $this->_customerSession->loginById($customerIdByHash);
 
+        $firstExplode = explode('|', $products);
+
+        foreach ($firstExplode as $item) {
+            $secondExplode = explode('_', $item);
+            $productSku = $secondExplode[0];
+            $productQuantity = $secondExplode[1];
+        }
+
         if ($this->_customerSession->isLoggedIn()) {
 
             $secret_hash = $this->_customerSession->getCustomer()->getData('secret_hash');
 
-            $existProduct = $this->_product->getIdBySku($sku);
+            $existProduct = $this->_product->getIdBySku($productSku);
 
-            $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $sku)->getId());
+            $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
 
             try {
-                if ($k == $secret_hash && $existProduct && $qty <= $existQty) {
+                if ($k == $secret_hash && $existProduct && $productQuantity <= $existQty) {
 
                     $product = $this->productRepository->getById($existProduct);
                     $session = $this->checkoutSession->create();
                     $quote = $session->getQuote();
-                    $quote->addProduct($product, $qty);
+                    $quote->addProduct($product, $productQuantity);
 
                     $this->cartRepository->save($quote);
                     $session->replaceQuote($quote)->unsLastRealOrderId();
@@ -189,14 +192,13 @@ class Index extends Action
      */
     public function getCustomerIdByHash($code)
     {
-        $objectManager = ObjectManager::getInstance();
-        $customerObj = $objectManager->create('Magento\Customer\Model\ResourceModel\Customer\Collection');
-        $collection = $customerObj->addAttributeToSelect('*')
-            ->addAttributeToFilter('secret_hash', $code)
+        $collection = $this->customerFactory->create()->getCollection()
+            ->addAttributeToSelect("*")
+            ->addAttributeToFilter("secret_hash", $code)
             ->load();
 
         $c_data = $collection->getData();
         return $c_data[0]['entity_id'];
-    }
 
+    }
 }
