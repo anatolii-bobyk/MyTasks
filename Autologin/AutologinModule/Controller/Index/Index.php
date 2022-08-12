@@ -2,7 +2,6 @@
 
 namespace Autologin\AutologinModule\Controller\Index;
 
-use Exception;
 use Magento\Catalog\Model\Product;
 use Magento\CatalogInventory\Api\StockStateInterface;
 use Magento\Checkout\Model\SessionFactory;
@@ -18,6 +17,7 @@ use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Quote\Api\CartRepositoryInterface;
+use Exception;
 
 class Index extends Action
 {
@@ -66,6 +66,11 @@ class Index extends Action
      * @var Product
      */
     protected $_product;
+
+    /**
+     * @var bool
+     */
+    protected bool $notEnoughQty = false;
 
 
     /**
@@ -117,11 +122,11 @@ class Index extends Action
      */
     public function execute()
     {
-        $k = $this->_request->getParam('k');
+        $hash = $this->_request->getParam('hash');
 
         $products = $this->_request->getParam('products');
 
-        $this->loginCustomerByHash($k);
+        $this->loginCustomerByHash($hash);
 
         if (!$this->_customerSession->isLoggedIn()) {
             return $this->redirect('/');
@@ -130,13 +135,21 @@ class Index extends Action
         $session = $this->checkoutSession->create();
         $quote = $session->getQuote();
 
-        $this->addProductsToQuote($products, $quote);
+        try {
+            $this->addProductsToQuote($products, $quote);
+        } catch (Exception $e) {
+            return $this->redirect('/');
+        }
+
+
+        if ($this->notEnoughQty) {
+            return $this->redirect('/');
+        }
 
         $this->cartRepository->save($quote);
         $session->replaceQuote($quote)->unsLastRealOrderId();
 
         return $this->redirect('checkout/cart');
-
     }
 
     /**
@@ -160,18 +173,18 @@ class Index extends Action
     }
 
     /**
-     * @param $code
+     * @param $hash
      * @return mixed
      */
-    public function loginCustomerByHash($code)
+    public function loginCustomerByHash($hash)
     {
         $collection = $this->customerFactory->create()->getCollection()
             ->addAttributeToSelect("*")
-            ->addAttributeToFilter("secret_hash", $code)
+            ->addAttributeToFilter("secret_hash", $hash)
             ->load();
 
-        $c_data = $collection->getData();
-        $customerId = $c_data[0]['entity_id'] ?? 0;
+        $customerData = $collection->getData();
+        $customerId = $customerData[0]['entity_id'] ?? 0;
         $this->_customerSession->loginById($customerId);
     }
 
@@ -191,7 +204,7 @@ class Index extends Action
             if ($existProduct && $productQuantity <= $existQty) {
                 $quote->addProduct($existProduct, $productQuantity);
             } else {
-                return $this->redirect('/');
+                return $this->notEnoughQty = true;
             }
         }
     }
