@@ -138,9 +138,9 @@ class Index extends Action
             $productSku = $secondExplode[0];
             $productQuantity = $secondExplode[1];
 
-            $existProduct = $this->_product->getIdBySku($productSku);
+            $existProduct = $this->productRepository->get($productSku);
 
-            $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
+            $existQty = $this->getStockQty($existProduct->getId());
 
             if ($existProduct && $productQuantity <= $existQty) {
                 $quote->addProduct($existProduct, $productQuantity);
