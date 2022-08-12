@@ -127,40 +127,35 @@ class Index extends Action
 
         if (!$this->_customerSession->isLoggedIn()) {
             return $this->redirect('/');
+        }
+        $firstExplode = explode('|', $products);
+
+        foreach ($firstExplode as $item) {
+            $secondExplode = explode('_', $item);
+            $productSku = $secondExplode[0];
+            $productQuantity = $secondExplode[1];
+        }
+
+        $existProduct = $this->_product->getIdBySku($productSku);
+
+        $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
+
+        if ($existProduct && $productQuantity <= $existQty) {
+
+            $product = $this->productRepository->getById($existProduct);
+            $session = $this->checkoutSession->create();
+            $quote = $session->getQuote();
+            $quote->addProduct($product, $productQuantity);
+
+            $this->cartRepository->save($quote);
+            $session->replaceQuote($quote)->unsLastRealOrderId();
+
+            return $this->redirect('checkout/cart');
 
         } else {
-            $firstExplode = explode('|', $products);
-
-            foreach ($firstExplode as $item) {
-                $secondExplode = explode('_', $item);
-                $productSku = $secondExplode[0];
-                $productQuantity = $secondExplode[1];
-            }
-
-            $existProduct = $this->_product->getIdBySku($productSku);
-
-            $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
-
-            try {
-                if ($existProduct && $productQuantity <= $existQty) {
-
-                    $product = $this->productRepository->getById($existProduct);
-                    $session = $this->checkoutSession->create();
-                    $quote = $session->getQuote();
-                    $quote->addProduct($product, $productQuantity);
-
-                    $this->cartRepository->save($quote);
-                    $session->replaceQuote($quote)->unsLastRealOrderId();
-
-                    return $this->redirect('checkout/cart');
-
-                } else {
-                    return $this->redirect('/');
-                }
-            } catch (Exception $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
-            }
+            return $this->redirect('/');
         }
+
     }
 
     /**

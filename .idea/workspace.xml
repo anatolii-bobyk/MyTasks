@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc3727f-1784-46a5-93ae-1a05ffad3268" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/MyTasks.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/Block/Tutorial.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/Helper/Data.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/Model/Config/Backend/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/Setup/Patch/Data/MyAtt.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/ViewModel/Image.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/etc/adminhtml/system.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/etc/frontend/routes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/etc/module.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/registration.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/view/frontend/layout/catalog_category_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/view/frontend/layout/catalog_product_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/view/frontend/templates/product/showLabel.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tutorial/TutorialModule/view/frontend/templates/tutorial.phtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Widget/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Widget/.idea/Widget.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Widget/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Widget/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Widget/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Widget/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Autologin/AutologinModule/Controller/Index/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Autologin/AutologinModule/Controller/Index/Index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,16 +23,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anatolii/Desktop/MyTasks&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/anatolii/Desktop/MyTasks/Autologin",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,6 +43,7 @@
       <updated>1658747433868</updated>
       <workItem from="1658747435084" duration="134000" />
       <workItem from="1659950327160" duration="66000" />
+      <workItem from="1660295672166" duration="8000" />
     </task>
     <servers />
   </component>
