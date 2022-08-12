@@ -125,24 +125,24 @@ class Index extends Action
 
         $this->_customerSession->loginById($customerIdByHash);
 
-        $firstExplode = explode('|', $products);
+        if (!$this->_customerSession->isLoggedIn()) {
+            return $this->redirect('/');
 
-        foreach ($firstExplode as $item) {
-            $secondExplode = explode('_', $item);
-            $productSku = $secondExplode[0];
-            $productQuantity = $secondExplode[1];
-        }
+        } else {
+            $firstExplode = explode('|', $products);
 
-        if ($this->_customerSession->isLoggedIn()) {
-
-            $secret_hash = $this->_customerSession->getCustomer()->getData('secret_hash');
+            foreach ($firstExplode as $item) {
+                $secondExplode = explode('_', $item);
+                $productSku = $secondExplode[0];
+                $productQuantity = $secondExplode[1];
+            }
 
             $existProduct = $this->_product->getIdBySku($productSku);
 
             $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
 
             try {
-                if ($k == $secret_hash && $existProduct && $productQuantity <= $existQty) {
+                if ($existProduct && $productQuantity <= $existQty) {
 
                     $product = $this->productRepository->getById($existProduct);
                     $session = $this->checkoutSession->create();
@@ -160,9 +160,6 @@ class Index extends Action
             } catch (Exception $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
             }
-
-        } else {
-            return $this->redirect('/');
         }
     }
 
