@@ -121,33 +121,16 @@ class Index extends Action
 
         $products = $this->_request->getParam('products');
 
-        $customerIdByHash = $this->getCustomerIdByHash($k);
-
-        $this->_customerSession->loginById($customerIdByHash);
+        $this->loginCustomerByHash($k);
 
         if (!$this->_customerSession->isLoggedIn()) {
             return $this->redirect('/');
         }
-        $firstExplode = explode('|', $products);
 
         $session = $this->checkoutSession->create();
         $quote = $session->getQuote();
 
-        foreach ($firstExplode as $item) {
-            $secondExplode = explode('_', $item);
-            $productSku = $secondExplode[0];
-            $productQuantity = $secondExplode[1];
-
-            $existProduct = $this->productRepository->get($productSku);
-
-            $existQty = $this->getStockQty($existProduct->getId());
-
-            if ($existProduct && $productQuantity <= $existQty) {
-                $quote->addProduct($existProduct, $productQuantity);
-            } else {
-                return $this->redirect('/');
-            }
-        }
+        $this->addProductsToQuote($products, $quote);
 
         $this->cartRepository->save($quote);
         $session->replaceQuote($quote)->unsLastRealOrderId();
@@ -180,7 +163,7 @@ class Index extends Action
      * @param $code
      * @return mixed
      */
-    public function getCustomerIdByHash($code)
+    public function loginCustomerByHash($code)
     {
         $collection = $this->customerFactory->create()->getCollection()
             ->addAttributeToSelect("*")
@@ -188,7 +171,28 @@ class Index extends Action
             ->load();
 
         $c_data = $collection->getData();
-        return $c_data[0]['entity_id'];
+        $customerId = $c_data[0]['entity_id'] ?? 0;
+        $this->_customerSession->loginById($customerId);
+    }
 
+    public function addProductsToQuote($products, $quote)
+    {
+        $getProductsArray = explode('|', $products);
+
+        foreach ($getProductsArray as $item) {
+            $getProductFields = explode('_', $item);
+            $productSku = $getProductFields[0];
+            $productQuantity = $getProductFields[1];
+
+            $existProduct = $this->productRepository->get($productSku);
+
+            $existQty = !empty($existProduct->getId()) ? $this->getStockQty($existProduct->getId()) : 0;
+
+            if ($existProduct && $productQuantity <= $existQty) {
+                $quote->addProduct($existProduct, $productQuantity);
+            } else {
+                return $this->redirect('/');
+            }
+        }
     }
 }
