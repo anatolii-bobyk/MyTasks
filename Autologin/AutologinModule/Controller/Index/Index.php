@@ -130,31 +130,28 @@ class Index extends Action
         }
         $firstExplode = explode('|', $products);
 
+        $session = $this->checkoutSession->create();
+        $quote = $session->getQuote();
+
         foreach ($firstExplode as $item) {
             $secondExplode = explode('_', $item);
             $productSku = $secondExplode[0];
             $productQuantity = $secondExplode[1];
+
+            $existProduct = $this->_product->getIdBySku($productSku);
+
+            $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
+
+            if ($existProduct && $productQuantity <= $existQty) {
+                $quote->addProduct($existProduct, $productQuantity);
+            } else {
+                return $this->redirect('/');
+            }
         }
+        $this->cartRepository->save($quote);
+        $session->replaceQuote($quote)->unsLastRealOrderId();
 
-        $existProduct = $this->_product->getIdBySku($productSku);
-
-        $existQty = $this->getStockQty($this->_product->loadByAttribute('sku', $productSku)->getId());
-
-        if ($existProduct && $productQuantity <= $existQty) {
-
-            $product = $this->productRepository->getById($existProduct);
-            $session = $this->checkoutSession->create();
-            $quote = $session->getQuote();
-            $quote->addProduct($product, $productQuantity);
-
-            $this->cartRepository->save($quote);
-            $session->replaceQuote($quote)->unsLastRealOrderId();
-
-            return $this->redirect('checkout/cart');
-
-        } else {
-            return $this->redirect('/');
-        }
+        return $this->redirect('checkout/cart');
 
     }
 
