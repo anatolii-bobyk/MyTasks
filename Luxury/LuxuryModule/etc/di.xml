@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
+
+    <preference for="Luxury\LuxuryModule\Api\Data\ItemInterface" type="Luxury\LuxuryModule\Model\Item" />
+    <preference for="Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface" type="Luxury\LuxuryModule\Model\ItemSearchResult" />
+    <preference for="Luxury\LuxuryModule\Api\ItemRepositoryInterface" type="Luxury\LuxuryModule\Model\ItemRepository" />
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

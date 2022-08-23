@@ -31,7 +31,7 @@ class Vendors extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
     public function getAllOptions()
     {
         $this->_options = [];
-        foreach ($this->itemRepository->getList() as $item) {
+        foreach ($this->itemRepository->getAllItems() as $item) {
             $this->_options[] =
 
                 [

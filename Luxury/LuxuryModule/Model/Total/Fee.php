@@ -6,6 +6,11 @@ use Magento\Framework\Phrase;
 use Magento\Quote\Api\Data\ShippingAssignmentInterface;
 use Magento\Quote\Model\Quote;
 use Magento\Quote\Model\Quote\Address\Total;
+use Magento\Quote\Model\Quote\Address\Total\AbstractTotal;
+use Luxury\LuxuryModule\Model\ItemRepository;
+use Luxury\LuxuryModule\Helper\Data;
+use Magento\Framework\Api\SearchCriteriaBuilder;
+
 
 class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
 {
@@ -14,12 +19,30 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
      */
     protected $quoteValidator = null;
 
+    protected $itemRepository;
+
+    protected $helper;
+
+    private static $amount;
+
+    protected $attributeCollection;
+
+    protected $searchCriteriaBuilder;
+
     /**
      * @param \Magento\Quote\Model\QuoteValidator $quoteValidator
      */
-    public function __construct(\Magento\Quote\Model\QuoteValidator $quoteValidator)
+    public function __construct(
+        \Magento\Quote\Model\QuoteValidator $quoteValidator,
+        ItemRepository                      $itemRepository,
+        Data                                $helper,
+        SearchCriteriaBuilder               $searchCriteriaBuilder
+    )
     {
         $this->quoteValidator = $quoteValidator;
+        $this->itemRepository = $itemRepository;
+        $this->helper = $helper;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
     }
 
     /**
@@ -36,16 +59,22 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     {
         parent::collect($quote, $shippingAssignment, $total);
 
-        $existAmount = $quote->getFee();
-        $fee = 100;
-        $balance = $fee - $existAmount;
+        $items = $shippingAssignment->getItems();
+        if (!count($items)) {
+            return $this;
+        }
 
+        if ($total->getData('subtotal') > 100) {
+            $existAmount = $quote->getFee();
+            $fee = 100;
+            $balance = $fee - $existAmount;
 
-        $total->setFee($balance);
-        $total->setBaseFee($balance);
+            $total->setFee($balance);
+            $total->setBaseFee($balance);
 
-        $total->setGrandTotal($total->getGrandTotal() + $balance);
-        $total->setBaseGrandTotal($total->getBaseGrandTotal() + $balance);
+            $total->setGrandTotal($total->getGrandTotal() + $balance);
+            $total->setBaseGrandTotal($total->getBaseGrandTotal() + $balance);
+        }
 
         return $this;
     }
@@ -91,4 +120,5 @@ class Fee extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
     {
         return __('Fee');
     }
+
 }

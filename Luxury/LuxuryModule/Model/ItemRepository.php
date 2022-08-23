@@ -6,6 +6,9 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Luxury\LuxuryModule\Api\ItemRepositoryInterface;
 use Luxury\LuxuryModule\Model\ResourceModel\Item;
 use Luxury\LuxuryModule\Model\ResourceModel\Item\CollectionFactory;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Luxury\LuxuryModule\Api\Data\ItemSearchResultInterfaceFactory;
 
 class ItemRepository implements ItemRepositoryInterface
 {
@@ -25,16 +28,33 @@ class ItemRepository implements ItemRepositoryInterface
      */
     private $collectionFactory;
 
+    /**
+     * @var ItemSearchResultInterfaceFactory
+     */
+    private $searchResultFactory;
+    /**
+     * @var CollectionProcessorInterface
+     */
+    private $collectionProcessor;
+
 
     /**
      * @param ItemFactory $itemFactory
      * @param Item $itemResource
      */
-    public function __construct(ItemFactory $itemFactory, Item $itemResource, CollectionFactory $collectionFactory)
+    public function __construct(
+        ItemFactory       $itemFactory,
+        Item              $itemResource,
+        CollectionFactory $collectionFactory,
+        ItemSearchResultInterfaceFactory $itemSearchResultInterfaceFactory,
+        CollectionProcessorInterface $collectionProcessor
+    )
     {
         $this->itemFactory = $itemFactory;
         $this->itemResource = $itemResource;
         $this->collectionFactory = $collectionFactory;
+        $this->searchResultFactory = $itemSearchResultInterfaceFactory;
+        $this->collectionProcessor = $collectionProcessor;
     }
 
     /**
@@ -55,7 +75,7 @@ class ItemRepository implements ItemRepositoryInterface
     public function deleteById($id)
     {
         $item = $this->getById($id);
-        try{
+        try {
             $this->itemResource->delete($item);
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(
@@ -65,8 +85,22 @@ class ItemRepository implements ItemRepositoryInterface
         return true;
     }
 
-    public function getList()
+    public function getAllItems()
     {
         return $this->collectionFactory->create()->getItems();
     }
+
+    public function getList(SearchCriteriaInterface $searchCriteria)
+    {
+        $collection = $this->collectionFactory->create();
+        $this->collectionProcessor->process($searchCriteria, $collection);
+        $searchResults = $this->searchResultFactory->create();
+
+        $searchResults->setSearchCriteria($searchCriteria);
+        $searchResults->setItems($collection->getItems());
+
+        return $searchResults;
+    }
+
+
 }

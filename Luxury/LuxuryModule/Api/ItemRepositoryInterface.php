@@ -19,9 +19,21 @@ interface ItemRepositoryInterface
      */
     public function deleteById($id);
 
+//    /**
+//     * @return ItemInterface[]
+//     */
+//    public function getList();
+
+    /**
+     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @return \Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+
     /**
      * @return ItemInterface[]
      */
-    public function getList();
+    public function getAllItems();
 
 }
