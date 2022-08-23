@@ -39,7 +39,7 @@ class ItemRepository implements ItemRepositoryInterface
 
     /**
      * @param int $id
-     * @return \News\NewsModule\Api\Data\NewsInterface
+     * @return \Luxury\LuxuryModule\Api\Data\ItemInterface
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function getById($id)
