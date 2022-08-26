@@ -10,26 +10,28 @@ define(
         return Component.extend({
             defaults: {
                 isFullTaxSummaryDisplayed: window.checkoutConfig.isFullTaxSummaryDisplayed || false,
-                template: 'Luxury_LuxuryModule/checkout/summary/fee'
+                template: 'Luxury_LuxuryModule/checkout/summary/custom_amount'
             },
             totals: quote.getTotals(),
             isTaxDisplayedInGrandTotal: window.checkoutConfig.includeTaxInGrandTotal || false,
-            isDisplayed: function () {
-                return this.isFullMode();
+
+            isDisplayed: function() {
+                return this.isFullMode() && this.getPureValue() !== 0;
             },
-            getValue: function () {
+
+            getValue: function() {
                 var price = 0;
                 if (this.totals()) {
-                    price = totals.getSegment('fee').value;
+                    price = totals.getSegment('custom_amount').value;
                 }
                 return this.getFormattedPrice(price);
             },
-            getBaseValue: function () {
+            getPureValue: function() {
                 var price = 0;
                 if (this.totals()) {
-                    price = this.totals().base_fee;
+                    price = totals.getSegment('custom_amount').value;
                 }
-                return priceUtils.formatPrice(price, quote.getBasePriceFormat());
+                return price;
             }
         });
     }

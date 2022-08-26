@@ -4,4 +4,8 @@
     <event name="adminhtml_customer_save_after">
         <observer name="customerSave" instance="Luxury\LuxuryModule\Observer\CustomerSaveAfter"/>
     </event>
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="checkout_controller_success_action"
+                  instance="Luxury\LuxuryModule\Observer\AfterPlaceOrder"/>
+    </event>
 </config>

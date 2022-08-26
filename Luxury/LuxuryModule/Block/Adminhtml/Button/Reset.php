@@ -4,6 +4,9 @@ namespace Luxury\LuxuryModule\Block\Adminhtml\Button;
 
 class Reset extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Button\Generic
 {
+    /**
+     * @return array
+     */
     public function getButtonData()
     {
         return [

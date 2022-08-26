@@ -3,6 +3,7 @@
 namespace Luxury\LuxuryModule\Api;
 
 use Luxury\LuxuryModule\Api\Data\ItemInterface;
+use Magento\Framework\Api\SearchCriteriaInterface;
 
 interface ItemRepositoryInterface
 {
@@ -19,17 +20,12 @@ interface ItemRepositoryInterface
      */
     public function deleteById($id);
 
-//    /**
-//     * @return ItemInterface[]
-//     */
-//    public function getList();
-
     /**
-     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @param SearchCriteriaInterface $searchCriteria
      * @return \Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
+    public function getList(SearchCriteriaInterface $searchCriteria);
 
     /**
      * @return ItemInterface[]

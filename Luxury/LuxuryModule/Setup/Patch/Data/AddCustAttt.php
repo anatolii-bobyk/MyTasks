@@ -16,7 +16,7 @@ use Psr\Log\LoggerInterface;
 /**
  * Add custom Customer attribute for email hash
  */
-class AddCustAtt implements DataPatchInterface
+class AddCustAttt implements DataPatchInterface
 {
     /**
      * @var ModuleDataSetupInterface
@@ -87,7 +87,7 @@ class AddCustAtt implements DataPatchInterface
     }
 
     /**
-     * @return AddCustAtt|void
+     * @return AddCustAttt|void
      * @throws LocalizedException
      * @throws \Zend_Validate_Exception
      */
@@ -99,7 +99,7 @@ class AddCustAtt implements DataPatchInterface
         $eavSetup = $this->eavSetupFactory->create();
         $eavSetup->addAttribute(
             \Magento\Customer\Model\Customer::ENTITY,
-            'luxury_tax',
+            'luxuryTax',
             [
                 'label' => 'Luxury Tax',
                 'system' => 0,
@@ -117,7 +117,7 @@ class AddCustAtt implements DataPatchInterface
         $attributeSetId = $eavSetup->getDefaultAttributeSetId(Customer::ENTITY);
         $attributeGroupId = $eavSetup->getDefaultAttributeGroupId(Customer::ENTITY);
 
-        $attribute = $this->eavConfig->getAttribute(Customer::ENTITY, 'luxury_tax');
+        $attribute = $this->eavConfig->getAttribute(Customer::ENTITY, 'luxuryTax');
         $attribute->setData('attribute_set_id', $attributeSetId);
         $attribute->setData('attribute_group_id', $attributeGroupId);
 

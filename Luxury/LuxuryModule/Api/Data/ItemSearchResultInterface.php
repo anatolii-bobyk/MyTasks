@@ -13,7 +13,7 @@ interface ItemSearchResultInterface extends SearchResultsInterface
 
     /**
      * @param \Luxury\LuxuryModule\Api\Data\ItemInterface[] $items
-     * @return void
+     * @return ItemSearchResultInterface
      */
     public function setItems(array $items);
 }

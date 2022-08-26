@@ -3,8 +3,9 @@
 namespace Luxury\LuxuryModule\Model\Attribute\Source;
 
 use Luxury\LuxuryModule\Model\ItemRepository;
+use Magento\Eav\Model\Entity\Attribute\Source\AbstractSource;
 
-class Vendors extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
+class Vendors extends AbstractSource
 {
     /**
      * @var ItemRepository

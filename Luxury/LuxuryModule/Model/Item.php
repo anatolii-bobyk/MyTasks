@@ -6,8 +6,11 @@ use Magento\Framework\Model\AbstractModel;
 
 class Item extends AbstractModel
 {
+    /**
+     * @return void
+     */
     protected function _construct()
     {
-        $this->_init(\Luxury\LuxuryModule\Model\ResourceModel\Item::class);
+        $this->_init(ResourceModel\Item::class);
     }
 }

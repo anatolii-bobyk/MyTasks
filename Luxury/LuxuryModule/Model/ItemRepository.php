@@ -2,13 +2,16 @@
 
 namespace Luxury\LuxuryModule\Model;
 
+use Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Luxury\LuxuryModule\Api\ItemRepositoryInterface;
 use Luxury\LuxuryModule\Model\ResourceModel\Item;
 use Luxury\LuxuryModule\Model\ResourceModel\Item\CollectionFactory;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
-use Magento\Framework\Api\SearchCriteriaInterface;
 use Luxury\LuxuryModule\Api\Data\ItemSearchResultInterfaceFactory;
+use Luxury\LuxuryModule\Api\Data\ItemInterface;
+
 
 class ItemRepository implements ItemRepositoryInterface
 {
@@ -41,13 +44,16 @@ class ItemRepository implements ItemRepositoryInterface
     /**
      * @param ItemFactory $itemFactory
      * @param Item $itemResource
+     * @param CollectionFactory $collectionFactory
+     * @param ItemSearchResultInterfaceFactory $itemSearchResultInterfaceFactory
+     * @param CollectionProcessorInterface $collectionProcessor
      */
     public function __construct(
-        ItemFactory       $itemFactory,
-        Item              $itemResource,
-        CollectionFactory $collectionFactory,
+        ItemFactory                      $itemFactory,
+        Item                             $itemResource,
+        CollectionFactory                $collectionFactory,
         ItemSearchResultInterfaceFactory $itemSearchResultInterfaceFactory,
-        CollectionProcessorInterface $collectionProcessor
+        CollectionProcessorInterface     $collectionProcessor
     )
     {
         $this->itemFactory = $itemFactory;
@@ -72,6 +78,11 @@ class ItemRepository implements ItemRepositoryInterface
         return $item;
     }
 
+    /**
+     * @param $id
+     * @return bool
+     * @throws NoSuchEntityException
+     */
     public function deleteById($id)
     {
         $item = $this->getById($id);
@@ -85,11 +96,18 @@ class ItemRepository implements ItemRepositoryInterface
         return true;
     }
 
+    /**
+     * @return ItemInterface[]|\Magento\Framework\DataObject[]
+     */
     public function getAllItems()
     {
         return $this->collectionFactory->create()->getItems();
     }
 
+    /**
+     * @param SearchCriteriaInterface $searchCriteria
+     * @return \Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface
+     */
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
         $collection = $this->collectionFactory->create();
@@ -101,6 +119,5 @@ class ItemRepository implements ItemRepositoryInterface
 
         return $searchResults;
     }
-
 
 }

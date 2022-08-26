@@ -8,16 +8,16 @@
                     <item name="components" xsi:type="array">
                         <item name="block-totals" xsi:type="array">
                             <item name="children" xsi:type="array">
-                                <item name="fee" xsi:type="array">
+                                <item name="custom_amount" xsi:type="array">
                                     <item name="component" xsi:type="string">
-                                        Luxury_LuxuryModule/js/view/checkout/cart/totals/fee
+                                        Luxury_LuxuryModule/js/view/checkout/cart/totals/custom_amount
                                     </item>
                                     <item name="sortOrder" xsi:type="string">20</item>
                                     <item name="config" xsi:type="array">
                                         <item name="template" xsi:type="string">
-                                            Luxury_LuxuryModule/checkout/cart/totals/fee
+                                            Luxury_LuxuryModule/checkout/cart/totals/custom_amount
                                         </item>
-                                        <item name="title" xsi:type="string" translate="true">Fee</item>
+                                        <item name="title" xsi:type="string">My Luxury Tax</item>
                                     </item>
                                 </item>
                             </item>

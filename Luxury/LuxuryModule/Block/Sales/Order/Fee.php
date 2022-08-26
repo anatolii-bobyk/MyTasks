@@ -3,10 +3,11 @@
 namespace Luxury\LuxuryModule\Block\Sales\Order;
 
 use Magento\Framework\DataObject;
+use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Tax\Model\Config;
 
-class Fee extends \Magento\Framework\View\Element\Template
+class Fee extends Template
 {
     /**
      * @var Config
@@ -30,9 +31,10 @@ class Fee extends \Magento\Framework\View\Element\Template
      */
     public function __construct(
         Context $context,
-        Config $taxConfig,
-        array $data = []
-    ) {
+        Config  $taxConfig,
+        array   $data = []
+    )
+    {
         $this->_config = $taxConfig;
         parent::__construct($context, $data);
     }
@@ -96,15 +98,15 @@ class Fee extends \Magento\Framework\View\Element\Template
         $store = $this->getStore();
         $fee = new DataObject(
             [
-                'code' => 'fee',
+                'code' => 'custom_amount',
                 'strong' => false,
-                'value' => 100,
-                'label' => __('Fee'),
+                'value' => 200,
+                'label' => __('My Luxury Tax'),
             ]
         );
 
-        $parent->addTotal($fee, 'fee');
-        $parent->addTotal($fee, 'fee');
+        $parent->addTotal($fee, 'custom_amount');
+        $parent->addTotal($fee, 'custom_amount');
         return $this;
     }
 }

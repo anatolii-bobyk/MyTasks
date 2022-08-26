@@ -2,15 +2,17 @@
 
 namespace Luxury\LuxuryModule\Controller\Adminhtml\Index;
 
+use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Luxury\LuxuryModule\Model\ResourceModel\Item\CollectionFactory;
+use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Ui\Component\MassAction\Filter;
 use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Class MassDelete
  */
-class MassDelete extends \Magento\Backend\App\Action
+class MassDelete extends Action
 {
     /**
      * @var Filter
@@ -18,13 +20,22 @@ class MassDelete extends \Magento\Backend\App\Action
     protected $filter;
 
 
+    /**
+     * @var CollectionFactory
+     */
     protected $collectionFactory;
 
+    /**
+     * @param Context $context
+     * @param Filter $filter
+     * @param CollectionFactory $collectionFactory
+     */
     public function __construct(
-        Context $context,
-        Filter $filter,
+        Context           $context,
+        Filter            $filter,
         CollectionFactory $collectionFactory
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
@@ -43,7 +54,7 @@ class MassDelete extends \Magento\Backend\App\Action
 
         $this->messageManager->addSuccess(__('A total of %1 record(s) have been deleted.', $collectionSize));
 
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/index/index');
     }

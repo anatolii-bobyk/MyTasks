@@ -18,6 +18,9 @@ class BlockActions extends Column
      * Url path
      */
     const URL_PATH_EDIT = 'luxury/item/new';
+    /**
+     *
+     */
     const URL_PATH_DELETE = 'luxury/index/delete';
 
     /**
@@ -38,12 +41,13 @@ class BlockActions extends Column
      * @param array $data
      */
     public function __construct(
-        ContextInterface $context,
+        ContextInterface   $context,
         UiComponentFactory $uiComponentFactory,
-        UrlInterface $urlBuilder,
-        array $components = [],
-        array $data = []
-    ) {
+        UrlInterface       $urlBuilder,
+        array              $components = [],
+        array              $data = []
+    )
+    {
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }

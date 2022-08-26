@@ -4,11 +4,22 @@ namespace Luxury\LuxuryModule\Ui;
 
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
-class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
+class DataProvider extends AbstractDataProvider
 
 {
+    /**
+     * @var
+     */
     protected $collection;
 
+    /**
+     * @param $name
+     * @param $primaryFieldName
+     * @param $requestFieldName
+     * @param $collectionFactory
+     * @param array $meta
+     * @param array $data
+     */
     public function __construct(
 
         $name,
@@ -24,6 +35,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $this->collection = $collectionFactory->create();
     }
 
+    /**
+     * @return array
+     */
     public function getData()
     {
         $result = [];

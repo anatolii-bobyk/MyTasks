@@ -1,10 +1,14 @@
 <?php
+
 namespace Luxury\LuxuryModule\Block\Adminhtml\Button;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 class Back extends Generic implements ButtonProviderInterface
 {
+    /**
+     * @return array
+     */
     public function getButtonData()
     {
         return [
@@ -14,6 +18,10 @@ class Back extends Generic implements ButtonProviderInterface
             'sort_order' => 10,
         ];
     }
+
+    /**
+     * @return string
+     */
     public function getBackUrl()
     {
         return $this->getUrl('luxury/index/index');
