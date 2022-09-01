@@ -2,7 +2,6 @@
 
 namespace Luxury\LuxuryModule\Helper;
 
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Helper\Context;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Customer\Model\Session;
@@ -103,7 +102,7 @@ class Data extends AbstractHelper
      * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getLuxuryTaxAmount($customerId, $subtotal)
+    public function getConditionAmount($customerId, $subtotal)
     {
         $attribute = $this->getLuxuryAttribute($customerId);
         if ($attribute) {

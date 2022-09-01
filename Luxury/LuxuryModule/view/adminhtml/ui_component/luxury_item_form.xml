@@ -77,15 +77,6 @@
                 </item>
             </argument>
         </field>
-<!--        <field name="customer_group">-->
-<!--            <argument name="data" xsi:type="array">-->
-<!--                <item name="config" xsi:type="array">-->
-<!--                    <item name="label" xsi:type="string" translate="true">Customer group</item>-->
-<!--                    <item name="dataType" xsi:type="string">text</item>-->
-<!--                    <item name="formElement" xsi:type="string">input</item>-->
-<!--                </item>-->
-<!--            </argument>-->
-<!--        </field>-->
         <field name="customer_group" sortOrder="40" formElement="select">
             <settings>
                 <label translate="true">Customer Group</label>
@@ -93,7 +84,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options  class="Magento\Customer\Model\Customer\Source\GroupSourceInterface"/>
+                        <options class="Magento\Customer\Model\Customer\Source\GroupSourceInterface"/>
                     </settings>
                 </select>
             </formElements>

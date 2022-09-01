@@ -23,7 +23,7 @@
                                                                 <item name="template" xsi:type="string">
                                                                     Luxury_LuxuryModule/checkout/cart/totals/custom_amount
                                                                 </item>
-                                                                <item name="title" xsi:type="string">Custom Amount
+                                                                <item name="title" xsi:type="string">My Luxury Tax
                                                                 </item>
                                                             </item>
                                                         </item>

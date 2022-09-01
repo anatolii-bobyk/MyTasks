@@ -7,7 +7,6 @@ use Magento\Catalog\Ui\DataProvider\Product\ProductCollectionFactory;
 use Magento\Customer\Model\Customer;
 use Magento\Eav\Model\Config;
 use Magento\Eav\Setup\EavSetupFactory;
-use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
@@ -27,11 +26,6 @@ class AddCustAttt implements DataPatchInterface
      * @var EavSetupFactory
      */
     private $eavSetupFactory;
-
-    /**
-     * @var ProductCollectionFactory
-     */
-    private $productCollectionFactory;
 
     /**
      * @var LoggerInterface

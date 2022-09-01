@@ -6,8 +6,6 @@ use Luxury\LuxuryModule\Helper\Data;
 use Luxury\LuxuryModule\Model\ItemFactory;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\App\ObjectManager;
 use Magento\Sales\Api\Data\OrderInterface;
 
 class AfterPlaceOrder implements ObserverInterface
@@ -54,7 +52,7 @@ class AfterPlaceOrder implements ObserverInterface
 
         $subtotal = $order->getSubtotal();
 
-        $luxuryTax = $this->helper->getLuxuryTaxAmount($customerId, $subtotal);
+        $luxuryTax = $this->helper->getConditionAmount($customerId, $subtotal);
 
         $order->setData('luxuryTax', $luxuryTax);
 

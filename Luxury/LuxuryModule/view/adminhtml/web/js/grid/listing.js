@@ -12,9 +12,9 @@ define([
 
                 let value = parseFloat(row.luxuryTax);
 
-                if (value > 100 && value < 1000) {
+                if (value > 100 && value <= 1000) {
                     return 'yellow';
-                } else if (value >= 1000) {
+                } else if (value > 1000) {
                     return 'green';
                 } else {
                     return 'white';

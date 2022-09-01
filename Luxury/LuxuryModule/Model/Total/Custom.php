@@ -73,11 +73,12 @@ class Custom extends AbstractTotal
         }
 
         $customerId = $this->helper->getCustomerId();
-        $luxuryAttribute = $this->getAttributeLuxuryTax($customerId);
+        $luxuryAttribute = $this->helper->getLuxuryAttribute($customerId);
+        $subtotal = $total->getData('subtotal');
         if ($luxuryAttribute) {
-            self::$ConditionAmount = $this->getLuxuryTaxAmount($customerId, $total);
+            self::$ConditionAmount = $this->helper->getConditionAmount($customerId, $subtotal);
             $taxRate = $luxuryAttribute->getTaxRate();
-            if ($total->getData('subtotal') >= $taxRate) {
+            if ($subtotal >= $taxRate) {
                 $total->setCustomAmount(self::$ConditionAmount);
                 $total->setBaseCustomAmount(self::$ConditionAmount);
                 $total->setGrandTotal($total->getGrandTotal() + self::$ConditionAmount);
@@ -111,7 +112,7 @@ class Custom extends AbstractTotal
      */
     public function fetch(Quote $quote, Total $total)
     {
-        self::$ConditionAmount = $this->getLuxuryTaxAmount($this->helper->getCustomerId(), $total);
+        self::$ConditionAmount = $this->getConditionAmount($this->helper->getCustomerId(), $total);
         return [
             'code' => $this->getCode(),
             'title' => 'Luxury Tax Amount',
@@ -129,25 +130,12 @@ class Custom extends AbstractTotal
 
     /**
      * @param $customerId
-     * @return mixed|null
-     */
-    protected function getAttributeLuxuryTax($customerId)
-    {
-        $luxuryTaxAttribute = $this->helper->getAttributeLuxuryTax($customerId);
-        $this->searchCriteriaBuilder->addFilter('customer_group', $luxuryTaxAttribute->getValue());
-        $searchCriteria = $this->searchCriteriaBuilder->create();
-        $luxuryTaxAttributes = $this->itemRepository->getList($searchCriteria)->getItems();
-        return array_shift($luxuryTaxAttributes);
-    }
-
-    /**
-     * @param $customerId
      * @param Total $total
      * @return int
      */
-    protected function getLuxuryTaxAmount($customerId, Total $total)
+    protected function getConditionAmount($customerId, Total $total)
     {
-        $attribute = $this->getAttributeLuxuryTax($customerId);
+        $attribute = $this->helper->getLuxuryAttribute($customerId);
         if ($attribute) {
             $taxRate = $attribute->getTaxRate();
             if ($total->getData('subtotal') >= $taxRate) {

@@ -2,7 +2,6 @@
 
 namespace Luxury\LuxuryModule\Model;
 
-use Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;

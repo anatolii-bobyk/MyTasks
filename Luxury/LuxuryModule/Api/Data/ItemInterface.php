@@ -28,14 +28,4 @@ interface ItemInterface extends ExtensibleDataInterface
      */
     public function getDescription();
 
-    /**
-     * @return mixed
-     */
-    public function getConditionAmount();
-
-    /**
-     * @return mixed
-     */
-    public function getTaxRate();
-
 }

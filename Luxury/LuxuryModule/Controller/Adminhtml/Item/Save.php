@@ -37,7 +37,10 @@ class Save extends Action
                 ->setData($this->getRequest()->getPostValue()['general'])
                 ->save();
         } catch (Exception $e) {
-            $this->messageManager->addErrorMessage('This custom group already exist! Choose another one');
+            $this->messageManager->addErrorMessage('This customer group already exist! Choose another one');
+            $resultRedirect = $this->resultRedirectFactory->create();
+            $resultRedirect->setRefererOrBaseUrl();
+            return $resultRedirect;
         }
         return $this->resultRedirectFactory->create()->setPath('luxury/index/index');
     }

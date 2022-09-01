@@ -46,7 +46,9 @@
         <massaction name="listing_massaction">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="selectProvider" xsi:type="string">luxury_items_grid.luxury_items_grid.luxury_items_column.ids</item>
+                    <item name="selectProvider" xsi:type="string">
+                        luxury_items_grid.luxury_items_grid.luxury_items_column.ids
+                    </item>
                     <item name="indexField" xsi:type="string">id</item>
                 </item>
             </argument>

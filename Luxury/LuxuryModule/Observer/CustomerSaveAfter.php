@@ -5,7 +5,6 @@ namespace Luxury\LuxuryModule\Observer;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 
 class CustomerSaveAfter implements ObserverInterface
