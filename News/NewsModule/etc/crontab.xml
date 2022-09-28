@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento/etc/crontab.xsd">
+    <group id="default">
+        <job name="newsAddItem" instance="News\NewsModule\Cron\AddItem" method="execute">
+            <config_path>news/general/cron_expression</config_path>
+        </job>
+    </group>
+</config>

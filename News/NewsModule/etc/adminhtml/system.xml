@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento/etc/adminhtml/system.xsd">
+    <system>
+        <tab id="news" translate="label" sortOrder="10000">
+            <label>News</label>
+        </tab>
+        <section id="news" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>News</label>
+            <tab>news</tab>
+            <resource>News_NewsModule::news</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Our SKU</label>
+                <field id="enable" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="0"
+                       showInStore="0">
+                    <label>Module Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sku1" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>SKU 1</label>
+                </field>
+                <field id="sku2" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>SKU 2</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

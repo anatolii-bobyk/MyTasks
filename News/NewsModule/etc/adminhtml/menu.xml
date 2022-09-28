@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/adminhtml/menu.xsd">
+    <menu>
+        <add id="News_NewsModule::news" title="News"
+             module="News_NewsModule" resource="News_NewsModule::news"
+             translate="title" sortOrder="900" action="news"/>
+    </menu>
+</config>

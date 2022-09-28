@@ -1,0 +1,12 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento/etc/config.xsd">
+    <default>
+        <news>
+            <general>
+                <enabled>0</enabled>
+                <sku1>SKU 1</sku1>
+                <sku2>SKU 2</sku2>
+            </general>
+        </news>
+    </default>
+</config>

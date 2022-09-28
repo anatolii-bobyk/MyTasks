@@ -1,0 +1,13 @@
+{
+    "news_table": {
+        "column": {
+            "id_column": true,
+            "title": true,
+            "description": true,
+            "image": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

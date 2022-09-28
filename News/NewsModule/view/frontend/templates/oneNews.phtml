@@ -1,0 +1,7 @@
+<?php
+/** @var \News\NewsModule\Block\Hello $block */
+?>
+<p>ID:<?php echo $block->getOneItem()['id_column']; ?></p>
+<p><strong><h2><?php echo $block->getOneItem()['title']; ?></h2></strong></p>
+<p>About this news:<h4><?php echo $block->getOneItem()['description']; ?></h4></p>
+<p><img src="<?php echo $block->getOneItem()['image']; ?>"/></p>

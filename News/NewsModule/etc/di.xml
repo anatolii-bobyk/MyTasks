@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="newsAddItem" xsi:type="object">News\NewsModule\Console\Command\AddItem</item>
+            </argument>
+        </arguments>
+    </type>
+<!--    <type name="Magento\Checkout\Model\Cart">-->
+<!--        <plugin name="beforeAddtoCart" type="News\NewsModule\Plugin\Cart" sortOrder="1" />-->
+<!--    </type>-->
+<!--    <type name="Magento\Catalog\Model\Product">-->
+<!--        <plugin name="afterProductName" type="News\NewsModule\Plugin\Product" sortOrder="1" />-->
+<!--    </type>-->
+    <preference for="News\NewsModule\Api\Data\ItemInterface" type="News\NewsModule\Model\Item"/>
+    <preference for="News\NewsModule\Api\ItemRepositoryInterface" type="News\NewsModule\Model\ItemRepository"/>
+</config>

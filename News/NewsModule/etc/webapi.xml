@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<routes>
+    <route url="/V2/news" method="GET">
+        <service class="News\NewsModule\Api\ItemRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
