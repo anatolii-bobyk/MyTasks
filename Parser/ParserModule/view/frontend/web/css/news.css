@@ -1,0 +1,44 @@
+.rsgitech-news .rsg-news-list {
+    padding: 15px;
+    border: 1px solid #ccc;
+    display: block;
+    margin-top: -1px;
+}
+
+.rsgitech-news .rsg-news-list:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.rsgitech-news .rsg-news-list:nth-child(odd) {
+    background-color: #FAFAFA;
+}
+
+.rsgitech-news .rsg-news-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.rsgitech-news .rsg-news-time {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.rsgitech-news .pager {
+    margin-top: 20px;
+    display: flex;
+}
+
+.rsgitech-news .toolbar-amount {
+    margin-right: 20px;
+}
+
+.rsgitech-news .rsg-news-desc {
+    margin-top: 15px;
+}
+
+.rsgitech-news a:hover {
+    text-decoration: none;
+}
+

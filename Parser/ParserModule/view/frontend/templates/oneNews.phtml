@@ -1,0 +1,21 @@
+<?php
+///** @var \Parser\ParserModule\Block\News $block */
+//?>
+<!--<p>ID:--><?php //echo $block->getOneItem()['id']; ?><!--</p>-->
+<!--<p><strong><h2>--><?php //echo $block->getOneItem()['title']; ?><!--</h2></strong></p>-->
+<!--<p>About this news:<h4>--><?php //echo $block->getOneItem()['description']; ?><!--</h4></p>-->
+<!--<p><img src="--><?php //echo $block->getOneItem()['image']; ?><!--"/></p>-->
+<!--<p>URL:<a href="--><?php //echo $block->getOneItem()['link']?><!--">--><?php //echo $block->getOneItem()['link']?><!--</a></p>-->
+<!--<p>Guid: --><?php //echo $block->getOneItem()['guid']?><!--</p>-->
+
+<?php
+/** @var \Parser\ParserModule\Block\News $block */
+?>
+<p>ID:<?php echo $block->getOneNewsByTitle()['id']; ?></p>
+<p><strong><h2><?php echo $block->getOneNewsByTitle()['title']; ?></h2></strong></p>
+<p>About this news:<h4><?php echo $block->getOneNewsByTitle()['description']; ?></h4></p>
+<p><img src="<?php echo $block->getOneNewsByTitle()['image']; ?>"/></p>
+<p>URL:<a href="<?php echo $block->getOneNewsByTitle()['link']?>"><?php echo $block->getOneNewsByTitle()['link']?></a></p>
+<p>Guid: <?php echo $block->getOneNewsByTitle()['guid']?></p>
+
+

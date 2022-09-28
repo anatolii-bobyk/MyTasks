@@ -1,0 +1,14 @@
+{
+    "parsed_news": {
+        "column": {
+            "id": true,
+            "title": true,
+            "description": true,
+            "image": true,
+            "url": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

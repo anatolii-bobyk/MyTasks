@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Parser_ParserModule::css/news.css" />
+    </head>
+    <body>
+<!--        <referenceContainer name="content">-->
+<!--            <block name="parser_news" class="Parser\ParserModule\Block\News" template="showNews.phtml"/>-->
+<!--        </referenceContainer>-->
+        <referenceContainer name="content">
+            <block name="parser_news" class="Parser\ParserModule\Block\ListNews" template="listnews.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

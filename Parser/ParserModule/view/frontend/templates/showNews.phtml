@@ -1,0 +1,16 @@
+<?php
+/** @var \Parser\ParserModule\Block\ $block */
+?>
+<?php foreach ($block->getItems() as $item): ?>
+    <p>ID:<?php echo $item->getId(); ?></p>
+    <p><strong><h2><a href="<?php echo $item->getTitle(); ?>"><?php echo $item->getTitle(); ?></a></h2></strong></p>
+    <p>About this news:<h4><?php echo $item->getDescription(); ?></h4></p>
+    <p><img src="<?php echo $item->getImage(); ?>"/></p>
+    <p>URL:<a href="<?php echo $item->getLink(); ?>"><?php echo $item->getLink(); ?></a></p>
+    <p>Guid: <?php echo $item->getGuid(); ?></p>
+<?php endforeach; ?>
+
+
+
+
+

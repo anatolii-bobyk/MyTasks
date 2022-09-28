@@ -1,0 +1,64 @@
+<?php
+/** @var \Parser\ParserModule\Block\ListNews $block */
+?>
+<div class="rsgitech-news">
+    <?php $allNews = $block->getListNews() ?>
+    <?php if ($allNews && count($allNews) > 0): ?>
+        <?php foreach ($allNews as $allNew): ?>
+            <div class="rsg-news-list">
+                <p>ID:<?php echo $allNew->getId(); ?></p>
+                <p><strong>
+                <h2><a class="ajax_open"
+                       href="<?php echo $allNew->getTitle(); ?>"><?php echo $allNew->getTitle(); ?></a>
+
+
+                    <p><a data-fancybox data-type="ajax" data-src="<?php echo $allNew->getTitle(); ?>" href="javascript:;">
+                        <?php echo $allNew->getTitle(); ?> Second variant
+                        </a></p>
+
+                    <p><a onclick="OnPopup(this); return false;" href="<?php echo $allNew->getTitle(); ?>">
+                        <?php echo $allNew->getTitle(); ?> Third variant
+                        </a></p>
+                </h2></strong></p>
+                <p>About this news:<h4><?php echo $allNew->getDescription(); ?></h4></p>
+                <p><img src="<?php echo $allNew->getImage(); ?>"/></p>
+                <p>URL: <a href="<?php echo $allNew->getLink(); ?>"><?php echo $allNew->getLink(); ?></a></p>
+                <p>Guid: <?php echo $allNew->getGuid(); ?></p>
+            </div>
+        <?php endforeach; ?>
+
+        <?php if ($block->getPagerHtml()): ?>
+            <?php echo $block->getPagerHtml() ?>
+        <?php endif; ?>
+    <?php else: ?>
+        <div><?php echo __('News not available') ?></div>
+    <?php endif; ?>
+</div>
+
+<?php if(!isset($_REQUEST['fancybox'])):?>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js" integrity="sha512-j7/1CJweOskkQiS5RD9W8zhEG9D9vpgByNGxPIqkO5KrXrwyDAroM9aQ9w8J7oRqwxGyz429hPVk/zR6IOMtSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    function OnPopup(link){
+        var href=jQuery(link).attr('href');
+        $.fancybox.open({
+            src  : href,
+            type : 'iframe'
+        });
+
+    }
+</script>
+
+<div id="events_popup" style="display: none;" class="events_popup">
+        <script>
+        require(
+            ['jquery', 'Parser_ParserModule/js/example'],
+            function ($, example) {
+                example.exampleData();
+            }
+        );
+    </script>
+</div>
+<?php endif; ?>
