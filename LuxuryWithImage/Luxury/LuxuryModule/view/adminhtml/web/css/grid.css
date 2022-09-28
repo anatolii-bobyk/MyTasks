@@ -1,0 +1,17 @@
+td.green div {
+    background-color: limegreen;
+    border: 1px solid #008000;
+    padding: 5px 0px 6px 10px;
+}
+
+td.white div{
+    background-color: white;
+    border: 1px solid white;
+    padding: 5px 0px 6px 10px;
+}
+
+td.yellow div{
+    background-color: yellow;
+    border: 1px solid #FFA500;
+    padding: 5px 0px 6px 10px;
+}

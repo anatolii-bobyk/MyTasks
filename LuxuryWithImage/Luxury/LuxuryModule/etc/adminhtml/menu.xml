@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/adminhtml/menu.xsd">
+    <menu>
+        <add id="Luxury_LuxuryModule::luxury" title="My Luxury Tax "
+             module="Luxury_LuxuryModule" resource="Luxury_LuxuryModule::luxury" parent="Magento_Tax::sales_tax"
+             translate="title" sortOrder="900" action="luxury"/>
+    </menu>
+</config>
