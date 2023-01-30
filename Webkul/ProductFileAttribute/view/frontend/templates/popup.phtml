@@ -1,0 +1,45 @@
+<?php
+/** @var Popup $block */
+
+use Webkul\ProductFileAttribute\Block\Popup;
+
+$_product = $block->getProduct();
+$custom = $_product->getData('agreement_file');
+$mediaUrl = $block->getMediaUrl() . $custom;
+if (isset($custom)) {
+    ?>
+
+    <div data-bind="mageInit: {
+        'Magento_Ui/js/modal/modal':{
+            'type': 'popup',
+            'title': '3D Model',
+            'trigger': '[data-trigger=trigger]',
+            'responsive': true,
+             buttons: []
+        }}">
+        <div class="content">
+            <model-viewer class="model" src="<?php echo $mediaUrl?>" camera-controls></model-viewer>
+            <p><?php echo $mediaUrl?></p>
+            <img src="<?php echo $mediaUrl?>" />
+        </div>
+    </div>
+    <div id="click-section" class="click-section">
+        <button type="button" class="action primary" data-trigger="trigger">
+            <span data-bind="i18n: '3D Preview'"></span>
+        </button>
+    </div>
+
+<?php } ?>
+
+<script type="text/x-magento-init">
+    {
+        ".button-model-preview": {
+            "https://unpkg.com/@webcomponents/webcomponentsjs@2.1.3/webcomponents-loader.js": {},
+            "https://unpkg.com/@google/model-viewer@v0.9.0/dist/model-viewer.js": {},
+            "https://unpkg.com/@google/model-viewer@v0.9.0/dist/model-viewer-legacy.js": {}
+        }
+    }
+</script>
+
+
+
