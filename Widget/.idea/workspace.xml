@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="401536b6-a19d-41a2-936f-46d3116703bf" name="Changes" comment="" />
+    <list default="true" id="401536b6-a19d-41a2-936f-46d3116703bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/OnePageCheckout.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/etc/module.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/registration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/requirejs-config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/action/place-order.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/mixin/estimate-service-mixin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/mixin/payment-service-mixin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/view/shipping.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/template/payment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/template/shipping.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/Webkul.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Block/Popup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Controller/Index/Index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Model/Product/Attribute/Backend/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Setup/Patch/Data/ProductFileAttribute.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Ui/DataProvider/Product/Form/Modifier/File.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/etc/adminhtml/di.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/etc/frontend/routes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/etc/module.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/registration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/adminhtml/web/template/elements/file.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/layout/catalog_product_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/require-config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/templates/popup.phtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/web/js/example.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,16 +54,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/anatolii/Desktop/MyTasks/Widget",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anatolii/Desktop/MyTasks/Widget&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -38,6 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1659019479858</updated>
       <workItem from="1659019481358" duration="100000" />
+      <workItem from="1675090895876" duration="17000" />
     </task>
     <servers />
   </component>
