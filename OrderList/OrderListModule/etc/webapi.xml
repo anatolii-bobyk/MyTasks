@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes>
+    <route url="/V1/getorders:id" method="GET">
+        <service class="OrderList\OrderListModule\Api\OrderInterface" method="getOrderById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/customerorders:id" method="GET">
+        <service class="OrderList\OrderListModule\Api\OrderInterface" method="getCustomerOrders"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/customercart:id" method="GET">
+        <service class="OrderList\OrderListModule\Api\OrderInterface" method="getCustomerCart"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
