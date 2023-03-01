@@ -1,0 +1,58 @@
+<?php
+/** @var Display $block */
+
+use Crud\CrudModule\Block\Display;
+
+?>
+
+<div>
+
+    <?php $allMembers = $block->getAllMembers(); ?>
+    <?php if ($allMembers && count($allMembers) > 0): ?>
+    <table border="2">
+        <tr>
+            <th><?= __("ID") ?></th>
+            <th><?= __("Nick") ?></th>
+            <th><?= __("Visiting") ?></th>
+            <th><?= __("Boxes") ?></th>
+            <th><?= __("Edit") ?></th>
+            <th><?= __("Delete") ?></th>
+        </tr>
+        <?php foreach ($allMembers as $member): ?>
+            <tr>
+                <td><?= $member->getId() ?></td>
+                <td><?= $member->getNick() ?></td>
+                <td><?= $member->getVisiting() ?></td>
+                <td><?= $member->getBoxes() ?></td>
+                <td><a href="<?= $block->getEditPageUrl() . 'id/' . $member->getId() ?>">Edit</a></td>
+                <td><a href="<?= $block->getDeleteUrl() . 'id/' . $member->getId() ?>">Delete</a></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+    <hr/>
+    <form method="post" action="<?= $block->getSaveUrl(); ?>">
+        <fieldset style="margin: 0 auto; width: 50%">
+            <div>
+                <label for="nick"><?= __("Nick") ?></label>
+                <input type="text" name="nick"/>
+            </div>
+            <div>
+                <label for="visiting"><?= __("Visiting") ?></label>
+                <input type="text" name="visiting"/>
+            </div>
+            <div>
+                <label for="boxes"><?= __("Boxes") ?></label>
+                <input type="text" name="boxes"/>
+            </div>
+            <input type="submit" value="<?= __("Add member") ?>"/>
+        </fieldset>
+    </form>
+</div>
+<div style="margin-top: 50px">
+    <?php if ($block->getPagerHtml()): ?>
+        <?php echo $block->getPagerHtml() ?>
+    <?php endif; ?>
+    <?php else: ?>
+        <div><?php echo __('Members not available') ?></div>
+    <?php endif; ?>
+</div>

@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="401536b6-a19d-41a2-936f-46d3116703bf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/OnePageCheckout.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/etc/module.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/registration.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/requirejs-config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/action/place-order.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/mixin/estimate-service-mixin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/mixin/payment-service-mixin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/js/view/shipping.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/template/payment.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../OnePageCheckout/OnePageCheckoutModule/view/frontend/web/template/shipping.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/Webkul.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Block/Popup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Controller/Index/Index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Model/Product/Attribute/Backend/File.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Setup/Patch/Data/ProductFileAttribute.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/Ui/DataProvider/Product/Form/Modifier/File.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/etc/adminhtml/di.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/etc/frontend/routes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/etc/module.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/registration.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/adminhtml/web/template/elements/file.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/layout/catalog_product_view.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/require-config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/templates/popup.phtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Webkul/ProductFileAttribute/view/frontend/web/js/example.js" beforeDir="false" />
-    </list>
+    <list default="true" id="401536b6-a19d-41a2-936f-46d3116703bf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +39,7 @@
       <updated>1659019479858</updated>
       <workItem from="1659019481358" duration="100000" />
       <workItem from="1675090895876" duration="17000" />
+      <workItem from="1675092573079" duration="35000" />
     </task>
     <servers />
   </component>

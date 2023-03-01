@@ -1,0 +1,33 @@
+<?php
+/** @var Display $block */
+
+use Crud\CrudModule\Block\Display;
+
+?>
+
+<div>
+    <?php $member = $block->getMemberById(); ?>
+    <form method="post" action="<?= $block->getSaveUrl();?>">
+        <fieldset style="margin: 0 auto; width: 50%">
+            <?php
+            if ($member['id']) {
+                ?>
+                <input type="hidden" name="id" value="<?php echo $member['id']; ?>">
+                <?php
+            } ?>
+            <div>
+                <label for="nick"><?= __("Nick") ?></label>
+                <input type="text" name="nick" value="<?php echo $member['nick']?>"/>
+            </div>
+            <div>
+                <label for="visiting"><?= __("Visiting") ?></label>
+                <input type="text" name="visiting" value="<?php echo $member['visiting']?>"/>
+            </div>
+            <div>
+                <label for="boxes"><?= __("Boxes") ?></label>
+                <input type="text" name="boxes" value="<?php echo $member['boxes']?>"/>
+            </div>
+                <button type="submit">Update member</button>
+        </fieldset>
+    </form>
+</div>

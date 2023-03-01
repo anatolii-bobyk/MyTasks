@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
+    <preference for="Crud\CrudModule\Api\Data\MemberInterface" type="Crud\CrudModule\Model\Member"/>
+    <preference for="Crud\CrudModule\Api\MemberRepositoryInterface" type="Crud\CrudModule\Model\MemberRepository"/>
+</config>

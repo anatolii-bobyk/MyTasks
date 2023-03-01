@@ -1,0 +1,13 @@
+{
+    "visiting": {
+        "column": {
+            "id": true,
+            "nick": true,
+            "visit": true,
+            "boxes": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
