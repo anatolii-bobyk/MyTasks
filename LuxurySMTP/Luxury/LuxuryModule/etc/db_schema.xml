@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="luxury_tax">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="int" name="status" padding="10" unsigned="true" nullable="false"
+                comment="Entity Status"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name"/>
+        <column xsi:type="varchar" name="description" nullable="false" length="255" comment="Description"/>
+        <column xsi:type="int" name="customer_group" unsigned="true" nullable="false" comment="Customer Group"/>
+        <column xsi:type="float" name="condition_amount" nullable="false" comment="Condition amount"/>
+        <column xsi:type="float" name="tax_rate" nullable="false" comment="Tax rate"/>
+        <column xsi:type="varchar" name="image" nullable="false" length="255" comment="Luxury Image"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="LUXURY_TAX_CUSTOMER_GROUP">
+            <column name="customer_group"/>
+        </constraint>
+    </table>
+</schema>
+
+
+
+<!--<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">-->
+<!--    <table name="sales_order">-->
+<!--        <column xsi:type="varchar" name="luxuryTax" nullable="true" comment="My Luxury Tax" />-->
+<!--    </table>-->
+<!--    <table name="sales_order_grid">-->
+<!--        <column xsi:type="varchar" name="luxuryTax" nullable="true" comment="My Luxury Tax" />-->
+<!--    </table>-->
+<!--</schema>-->
+

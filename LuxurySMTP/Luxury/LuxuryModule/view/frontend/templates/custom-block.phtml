@@ -1,0 +1,18 @@
+<?php
+/** @var \Luxury\LuxuryModule\Block\Image $block */
+?>
+<div  class="image_luxury">
+    <img style="height: 50px; width: 50px;" src="<?php echo $block->getImage() ?>"/>
+</div>
+<script>
+    require([
+            'jquery'
+        ],
+        function ($) {});
+    function ShowLuxuryImage() {
+        console.log(jQuery('.to_set_image'));
+        console.log(jQuery('.image_luxury'));
+
+        jQuery('.to_set_image').append(jQuery('.image_luxury'));
+    }
+</script>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/di.xsd">
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="luxuryTax" xsi:type="string">sales_order.luxuryTax</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="luxury_items_grid_data_source" xsi:type="string">
+                    Luxury\LuxuryModule\Model\ResourceModel\Item\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Luxury\LuxuryModule\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="string">luxury/tmp/image</argument>
+            <argument name="basePath" xsi:type="string">luxury/image</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Luxury\LuxuryModule\Api\Data\ItemInterface" type="Luxury\LuxuryModule\Model\Item"/>
+    <preference for="Luxury\LuxuryModule\Api\Data\ItemSearchResultInterface"
+                type="Luxury\LuxuryModule\Model\ItemSearchResult"/>
+    <preference for="Luxury\LuxuryModule\Api\ItemRepositoryInterface" type="Luxury\LuxuryModule\Model\ItemRepository"/>
+</config>
+

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_customer_save_after">
+        <observer name="customerSave" instance="Luxury\LuxuryModule\Observer\CustomerSaveAfter"/>
+    </event>
+    <event name="checkout_onepage_controller_success_action">
+        <observer name="checkout_controller_success_action"
+                  instance="Luxury\LuxuryModule\Observer\AfterPlaceOrder"/>
+    </event>
+    <event name="send_email_observer">
+        <observer name="send_email" instance="Luxury\LuxuryModule\Observer\SendEmail"/>
+    </event>
+</config>

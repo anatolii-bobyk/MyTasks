@@ -1,0 +1,18 @@
+{
+    "luxury_tax": {
+        "column": {
+            "id": true,
+            "status": true,
+            "name": true,
+            "description": true,
+            "customer_group": true,
+            "condition_amount": true,
+            "tax_rate": true,
+            "image": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "LUXURY_TAX_CUSTOMER_GROUP": true
+        }
+    }
+}
