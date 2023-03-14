@@ -2,7 +2,6 @@
 
 namespace Webkul\ProductFileAttribute\Block;
 
-use Magento\Framework\Filesystem;
 use Magento\Framework\UrlInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Element\Template;
@@ -41,14 +40,12 @@ class Popup extends Template
         Registry                   $registry,
         ProductRepositoryInterface $productRepository,
         StoreManagerInterface      $storeManager,
-        Filesystem                 $filesystem,
         array                      $data = []
     )
     {
         $this->productRepository = $productRepository;
         $this->registry = $registry;
         $this->storeManager = $storeManager;
-        $this->_filesystem = $filesystem;
         parent::__construct($context, $data);
     }
 

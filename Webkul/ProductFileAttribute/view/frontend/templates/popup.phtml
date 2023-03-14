@@ -9,27 +9,73 @@ $mediaUrl = $block->getMediaUrl() . $custom;
 if (isset($custom)) {
     ?>
 
-    <div data-bind="mageInit: {
-        'Magento_Ui/js/modal/modal':{
-            'type': 'popup',
-            'title': '3D Model',
-            'trigger': '[data-trigger=trigger]',
-            'responsive': true,
-             buttons: []
-        }}">
-        <div class="content">
-            <model-viewer class="model" src="<?php echo $mediaUrl?>" camera-controls></model-viewer>
-            <p><?php echo $mediaUrl?></p>
-            <img src="<?php echo $mediaUrl?>" />
-        </div>
+    <div class="box">
+        <button><a class="button-model-preview" href="#popup" style="text-decoration: none;">3D preview</a></button>
     </div>
-    <div id="click-section" class="click-section">
-        <button type="button" class="action primary" data-trigger="trigger">
-            <span data-bind="i18n: '3D Preview'"></span>
-        </button>
+
+    <div id="popup" class="overlay">
+        <div class="popup">
+            <div class="close">
+                <a href="#">&times;</a>
+            </div>
+            <model-viewer class="model" src="<?php echo $mediaUrl ?>" camera-controls>
+            </model-viewer>
+        </div>
     </div>
 
 <?php } ?>
+
+<style>
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 10;
+
+    }
+
+    .overlay:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .popup {
+        height: 100%;
+        width: 100%;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    .popup .close a {
+        transition: all 200ms;
+        font-size: 80px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+        padding: 0px 30px;
+    }
+
+    .popup .close a:hover {
+        color: #000000;
+    }
+
+    .popup .model {
+        height: 100%;
+        width: auto;
+    }
+</style>
 
 <script type="text/x-magento-init">
     {
@@ -40,6 +86,3 @@ if (isset($custom)) {
         }
     }
 </script>
-
-
-

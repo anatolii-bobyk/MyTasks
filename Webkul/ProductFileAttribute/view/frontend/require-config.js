@@ -1,6 +1,6 @@
 var config = {
     paths: {
-        'myjs': "Webkul_ProductFileAttribute/js/example"
+        'myjs': "Webkul_ProductFileAttribute/js/popup"
     },
     shim: {
         'myjs': {
