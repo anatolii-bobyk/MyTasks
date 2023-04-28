@@ -3,4 +3,7 @@
     <event name='controller_action_catalog_product_save_entity_after'>
         <observer name='Acl_AclModule_Product_Save_After' instance='Acl\AclModule\Observer\ProductSaveAfter' />
     </event>
+    <event name="catalog_product_load_after">
+        <observer name="product_lock_attributes" instance="Acl\AclModule\Observer\LockAttribute"/>
+    </event>
 </config>
