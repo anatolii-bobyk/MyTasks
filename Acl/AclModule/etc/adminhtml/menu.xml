@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+    <add id="Acl_AclModule::custom_menu" title="Custom Menu" module="Acl_AclModule" sortOrder="999"
+         resource="Acl_AclModule::custom_menu"/>
+    <add id="Acl_AclModule::products" title="Products" module="Acl_AclModule" sortOrder="10"
+         parent="Acl_AclModule::custom_menu" resource="Acl_AclModule::products" action="acl/product/grid"/>
+    <add id="Acl_AclModule::orders" title="Orders" module="Acl_AclModule" sortOrder="20"
+         parent="Acl_AclModule::custom_menu" resource="Acl_AclModule::orders" action="sales/order/"/>
+</menu>
+</config>
